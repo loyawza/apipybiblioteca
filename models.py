@@ -1,10 +1,12 @@
-from pydantic import BaseModel, Field
+from pydantic import BaseModel
 
-class Book(BaseModel):
-    title: str = Field(
-        ..., min_length=1, max_length=100
-    )
-    author: str = Field(
-        ..., min_length=1, max_length=50
-    )
-    year: int = Field(..., gt=1900, lt=2100)
+class Editorial(BaseModel):
+    idEd: int
+    nombre: str
+    pais: str
+
+class Libro(BaseModel):
+    ISBN: str
+    titulo: str
+    autor: str
+    precio: float
